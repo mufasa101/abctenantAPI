@@ -8,6 +8,7 @@ from django.db.models.deletion import CASCADE
 class Property(models.Model):
     # today = datetime.datetime.now()
     property_auto = models.AutoField(primary_key=True)
+    id = models.CharField(default="abctenant", max_length=20)
     property_block = models.CharField(max_length=10)
     property_name = models.CharField(max_length=45)
     property_type = models.CharField(max_length=25, default="Residential")
