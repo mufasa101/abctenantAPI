@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import serializers
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from .models import Property_buildings
+from .models import Property
 from .serializers import PropertySerializer
 from rest_framework import permissions
 # Create your views here.
@@ -16,7 +16,7 @@ class PropertyList(ListCreateAPIView):
         serializer.save(property_added_by=self.request.user)
 
     def get_queryset(self):
-        return Property_buildings.objects.filter(property_added_by=self.request.user)
+        return Property.objects.filter(property_added_by=self.request.user)
 
 
 class PropertyDetails(RetrieveUpdateDestroyAPIView):
@@ -26,4 +26,4 @@ class PropertyDetails(RetrieveUpdateDestroyAPIView):
     lookup_field = "property_auto"
 
     def get_queryset(self):
-        return Property_buildings.objects.filter(property_added_by=self.request.user)
+        return Property.objects.filter(property_added_by=self.request.user)

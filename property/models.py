@@ -5,7 +5,7 @@ from django.db.models.deletion import CASCADE
 # Create your models here.
 
 
-class Property_buildings(models.Model):
+class Property(models.Model):
     # today = datetime.datetime.now()
     property_auto = models.AutoField(primary_key=True)
     id = models.IntegerField(default=1)
@@ -18,4 +18,4 @@ class Property_buildings(models.Model):
     property_added_by = models.ForeignKey(to=User, on_delete=CASCADE)
 
     class Meta:
-        db_table = 'property_buildings'
+        db_table = 'property'
